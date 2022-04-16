@@ -2,7 +2,7 @@
  
 (Work in progress)
 
-API mock service based on Spring Boot.
+API mock service based on Spring Boot. This app runs on Heroku PaaS.
 
 ## Set up
 
