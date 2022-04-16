@@ -14,7 +14,7 @@ public class ApiMockRestController {
 	@Autowired
 	ApiMockService apiMockService;
 	
-	@GetMapping("/cube")
+	@GetMapping("/box")
 	public Iterable<Box> move() {
 		return apiMockService.getBoxes();
 	}
