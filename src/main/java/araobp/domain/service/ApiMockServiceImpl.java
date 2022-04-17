@@ -19,4 +19,14 @@ public class ApiMockServiceImpl implements ApiMockService {
 		return boxRepository.findAll();
 	}
 
+	@Override
+	public Boolean updateBox(Box box) {
+		try {
+			boxRepository.save(box);
+			return true;
+		} catch(IllegalArgumentException e) {
+			return false;
+		}
+	}
+
 }

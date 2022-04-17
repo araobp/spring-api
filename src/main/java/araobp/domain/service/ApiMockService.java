@@ -5,5 +5,7 @@ import araobp.domain.entity.Box;
 public interface ApiMockService {
 
 	Iterable<Box> getBoxes();
+	
+	Boolean updateBox(Box box);
 
 }
