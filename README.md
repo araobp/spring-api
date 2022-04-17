@@ -2,6 +2,8 @@
  
 (Work in progress)
 
+API mock service based on Spring Boot. This app runs on Heroku PaaS.
+
 ## Project structure
 
 ```
@@ -15,8 +17,6 @@
 - Frontend: https://github.com/araobp/react-api
 - Backend: https://github.com/araobp/spring-api
 - Backend in a virtual world: https://github.com/araobp/unity-api
-
-API mock service based on Spring Boot. This app runs on Heroku PaaS.
 
 ## Set up
 
