@@ -13,7 +13,7 @@ public class ApiMockServiceImpl implements ApiMockService {
 
 	@Autowired
 	BoxRepository boxRepository;
-	
+
 	@Override
 	public Iterable<Box> getBoxes() {
 		return boxRepository.findAll();
@@ -22,9 +22,13 @@ public class ApiMockServiceImpl implements ApiMockService {
 	@Override
 	public Boolean updateBox(Box box) {
 		try {
-			boxRepository.save(box);
-			return true;
-		} catch(IllegalArgumentException e) {
+			if (boxRepository.existsById(box.getId())) {
+				boxRepository.save(box);
+				return true;
+			} else {
+				return false;
+			}
+		} catch (IllegalArgumentException e) {
 			return false;
 		}
 	}
