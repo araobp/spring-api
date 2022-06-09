@@ -26,6 +26,14 @@ spring-api-0::DATABASE=> \d box
 --------+---------+-----------+----------+---------
  id     | integer |           |          | 
  move   | boolean |           |          | 
+ 
+ spring-api-0::DATABASE=> select * from box;
+ id | move 
+----+------
+  2 | t
+  0 | f
+  1 | t
+(3 rows)
 ```
 
 ## Set up
