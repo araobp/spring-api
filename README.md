@@ -18,6 +18,16 @@ API mock service based on Spring Boot. This app runs on Heroku PaaS.
 - Backend: https://github.com/araobp/spring-api
 - Backend in a virtual world: https://github.com/araobp/unity-api
 
+### PostgreSQL database
+```
+spring-api-0::DATABASE=> \d box
+                Table "public.box"
+ Column |  Type   | Collation | Nullable | Default 
+--------+---------+-----------+----------+---------
+ id     | integer |           |          | 
+ move   | boolean |           |          | 
+```
+
 ## Set up
 
 ### Connection to PostgreSQL
