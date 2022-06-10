@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import araobp.domain.entity.Box;
+import araobp.domain.entity.Box__c;
 import araobp.domain.repository.BoxRepository;
 
 @Service
@@ -15,15 +15,15 @@ public class ApiMockServiceImpl implements ApiMockService {
 	BoxRepository boxRepository;
 
 	@Override
-	public Iterable<Box> getBoxes() {
+	public Iterable<Box__c> getBoxes() {
 		return boxRepository.findAll();
 	}
 
 	@Override
-	public Boolean updateBox(Box box) {
+	public Boolean updateBox(Box__c box) {
 		try {
-			if (boxRepository.existsById(box.getId())) {
-				boxRepository.save(box);
+			if (boxRepository.existsById(box.getId__c())) {
+				boxRepository.update(box.getId__c(), box.getMove__c());
 				return true;
 			} else {
 				return false;

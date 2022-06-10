@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import araobp.domain.entity.Box;
+import araobp.domain.entity.Box__c;
 import araobp.domain.service.ApiMockService;
 
 
@@ -22,13 +22,13 @@ public class ApiMockRestController {
 	ApiMockService apiMockService;
 	
 	@GetMapping("/box")
-	public Iterable<Box> getBoxes() {
+	public Iterable<Box__c> getBoxes() {
 		return apiMockService.getBoxes();
 	}
 	
 	@PatchMapping("/box/{id}")
-	public void updateBox(@PathVariable Integer id, @RequestBody Box box) {
-		box.setId(id);
+	public void updateBox(@PathVariable Double id, @RequestBody Box__c box) {
+		box.setId__c(id);
 		Boolean success = apiMockService.updateBox(box);
 		if (!success) throw new ResponseStatusException(HttpStatus.NOT_FOUND, NOT_FOUND_REASON);
 	}

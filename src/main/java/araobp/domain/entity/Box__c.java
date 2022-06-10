@@ -9,11 +9,12 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Box {
+public class Box__c {
 
 	@Id
-	private Integer id;
-	
-	private Boolean move;
+	private Double id__c;
+	//private Integer id__c;
+
+	private Boolean move__c;
 
 }
