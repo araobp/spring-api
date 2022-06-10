@@ -6,7 +6,7 @@ This app runs on Heroku PaaS.
 
 ## Database synchronization with Salesforce Cloud via Heroku Connect
 
-box__c table is synchronized with "Box" object on Salesforce Cloud via Heroku Connect.
+box__c table is synchronized with "Box" custom object on Salesforce Cloud via Heroku Connect.
 
 ```
        [box__c]<-------- Heroku Connect -------->[Box]
@@ -61,6 +61,15 @@ Triggers:
 ## Set up
 
 ### Running this app on Heroku
+
+[Prerequisite] Add a custom object "Box" on Salesforce Cloud:
+
+```
+Object name "Box" with the following fields:
+- Id (id__c): Double
+- Move (move__c): Boolean (appears as a checkbox in a detail page)
+
+```
 
 [Step1]  Add the following Heroku plugins:
 - Heroku postgres
