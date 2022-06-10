@@ -80,5 +80,3 @@ SPRING_DATASOURCE_USERNAME: <username>
 SPRING_DATASOURCE_PASSWORD: <password>
 
 ```
-
-Follow the following instructions if this app is deployed to Heroku: https://devcenter.heroku.com/articles/deploying-spring-boot-apps-to-heroku
