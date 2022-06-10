@@ -4,37 +4,18 @@
 
 API mock service based on Spring Boot. This app runs on Heroku PaaS.
 
-## Project structure
+## Database synchronization with Salesforce Cloud via Heroku Connect
+
+box__c table is synchronized with "Box" object on Salesforce Cloud via Heroku Connect.
 
 ```
-    [react-api]---REST API---[spring-api]
-                                  |
-                               REST API
-                                  |
-                             [unity-api]
+       [box__c]<-------- Heroku Connect -------->[Box]
+Heroku with PostgreSQL                       Salesforce Cloud
 ```
 
-- Frontend: https://github.com/araobp/react-api
-- Backend: https://github.com/araobp/spring-api
-- Backend in a virtual world: https://github.com/araobp/unity-api
+## Table on PostgreSQL
 
-## PostgreSQL database
 ```
-spring-api-0::DATABASE=> \d box
-                Table "public.box"
- Column |  Type   | Collation | Nullable | Default 
---------+---------+-----------+----------+---------
- id     | integer |           |          | 
- move   | boolean |           |          | 
- 
- spring-api-0::DATABASE=> select * from box;
- id | move 
-----+------
-  2 | t
-  0 | f
-  1 | t
-(3 rows)
-
 spring-api-0::DATABASE=> \dn
        List of schemas
     Name    |     Owner      
