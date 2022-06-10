@@ -2,6 +2,8 @@
 
 This app runs on Heroku PaaS.
 
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
 ## Database synchronization with Salesforce Cloud via Heroku Connect
 
 box__c table is synchronized with "Box" object on Salesforce Cloud via Heroku Connect.
