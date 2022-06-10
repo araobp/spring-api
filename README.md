@@ -58,7 +58,7 @@ Triggers:
 
 ## Set up
 
-### Connection to PostgreSQL for local testing
+### Running this app on Eclipse for local testing
 
 Add "application.properties" file to the project root directory with the following properties:
 
@@ -70,13 +70,23 @@ spring.datasource.password=<password>
 ```
 Note that "?currentSchema=salesforce,public" is added to spring.datasource.url to include "salesforce" schema.
 
-### Connection to PostgreSQL for Heroku deployment
+### Running this app on Heroku
 
-Add Config Vars as follows:
+[Step1]  Add the following Heroku plugins:
+- Heroku postgres
+- Heroku connect
+
+[Step2] Add Config Vars as follows:
 ```
 SPRING_DATASOURCE_DRIVER-CLASS-NAME: org.postgresql.Driver
 SPRING_DATASOURCE_URL: jdbc:postgresql:<... URL of your PostgreSQL database ...>?currentSchema=salesforce,public
 SPRING_DATASOURCE_USERNAME: <username>
 SPRING_DATASOURCE_PASSWORD: <password>
 
+```
+
+[Step3] Add the following Config Vars for HTTP Basic authentication:
+```
+ARAOBP_APIMOCK_PASSWORD_DEFAULT: <HTTP basic auth password>
+ARAOBP_APIMOCK_USERNAME_DEFAULT: <HTTP basic auth username>
 ```
