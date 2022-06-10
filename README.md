@@ -1,4 +1,4 @@
-# API mock service based on Spring Boot
+# API service based on Spring Boot
 
 This app runs on Heroku PaaS.
 
