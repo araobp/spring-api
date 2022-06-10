@@ -64,9 +64,10 @@ Add "application.properties" file to the project root directory with the followi
 
 ```
 spring.datasource.driver-class-name=org.postgresql.Driver
-spring.datasource.url=jdbc:postgresql:<... URL of your PostgreSQL database ...>
+spring.datasource.url=jdbc:postgresql:<... URL of your PostgreSQL database ...>?currentSchema=salesforce,public
 spring.datasource.username=<username>
 spring.datasource.password=<password>
 ```
+Note that "?currentSchema=salesforce,public" is added to spring.datasource.url to include "salesforce" schema.
 
 Or follow the following instructions if this app is deployed to Heroku: https://devcenter.heroku.com/articles/deploying-spring-boot-apps-to-heroku
