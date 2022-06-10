@@ -1,0 +1,6 @@
+{
+  "name": "spring-api-0",
+  "description": "API service based on SpringBoot",
+  "repository": "https://github.com/araobp/spring-api",
+  "keywords": ["spring", "salesforce"]
+}
