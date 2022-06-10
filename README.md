@@ -1,6 +1,6 @@
-# spring-api
+# API mock service based on Spring Boot
 
-API mock service based on Spring Boot. This app runs on Heroku PaaS.
+This app runs on Heroku PaaS.
 
 ## Database synchronization with Salesforce Cloud via Heroku Connect
 
