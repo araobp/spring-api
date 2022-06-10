@@ -58,7 +58,7 @@ Triggers:
 
 ## Set up
 
-### Connection to PostgreSQL
+### Connection to PostgreSQL for local testing
 
 Add "application.properties" file to the project root directory with the following properties:
 
@@ -70,4 +70,15 @@ spring.datasource.password=<password>
 ```
 Note that "?currentSchema=salesforce,public" is added to spring.datasource.url to include "salesforce" schema.
 
-Or follow the following instructions if this app is deployed to Heroku: https://devcenter.heroku.com/articles/deploying-spring-boot-apps-to-heroku
+### Connection to PostgreSQL for Heroku deployment
+
+Add Config Vars as follows:
+```
+SPRING_DATASOURCE_DRIVER-CLASS-NAME: org.postgresql.Driver
+SPRING_DATASOURCE_URL: jdbc:postgresql:<... URL of your PostgreSQL database ...>?currentSchema=salesforce,public
+SPRING_DATASOURCE_USERNAME: <username>
+SPRING_DATASOURCE_PASSWORD: <password>
+
+```
+
+Follow the following instructions if this app is deployed to Heroku: https://devcenter.heroku.com/articles/deploying-spring-boot-apps-to-heroku
