@@ -17,6 +17,4 @@ public class Box__c {
 
 	private Boolean move__c;
 	
-	private Double count__c;
-
 }
