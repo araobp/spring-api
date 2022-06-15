@@ -86,8 +86,8 @@ SPRING_DATASOURCE_PASSWORD: <password>
 
 [Step3] Add the following Config Vars for HTTP Basic authentication:
 ```
-ARAOBP_APIMOCK_USERNAME_DEFAULT: <HTTP basic auth username>
-ARAOBP_APIMOCK_PASSWORD_DEFAULT: <HTTP basic auth password>
+BOX_USERNAME: <HTTP basic auth username>
+BOX_PASSWORD: <HTTP basic auth password>
 ```
 
 ### Running this app on Eclipse for local testing
