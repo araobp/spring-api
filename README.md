@@ -2,9 +2,11 @@
 
 This app runs on Heroku PaaS.
 
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
 ## Database synchronization with Salesforce Cloud via Heroku Connect
 
-box__c table is synchronized with "Box" object on Salesforce Cloud via Heroku Connect.
+box__c table is synchronized with "Box" custom object on Salesforce Cloud via Heroku Connect.
 
 ```
        [box__c]<-------- Heroku Connect -------->[Box]
@@ -58,7 +60,37 @@ Triggers:
 
 ## Set up
 
-### Connection to PostgreSQL for local testing
+### Running this app on Heroku
+
+[Prerequisite] Add a custom object "Box" on Salesforce Cloud:
+
+```
+Object name "Box" with the following fields:
+- Id (id__c): Double
+- Move (move__c): Boolean (appears as a checkbox in a detail page)
+
+```
+
+[Step1]  Add the following Heroku plugins:
+- Heroku postgres
+- Heroku connect
+
+[Step2] Add Config Vars as follows:
+```
+SPRING_DATASOURCE_DRIVER-CLASS-NAME: org.postgresql.Driver
+SPRING_DATASOURCE_URL: jdbc:postgresql:<... URL of your PostgreSQL database ...>?currentSchema=salesforce,public
+SPRING_DATASOURCE_USERNAME: <username>
+SPRING_DATASOURCE_PASSWORD: <password>
+
+```
+
+[Step3] Add the following Config Vars for HTTP Basic authentication:
+```
+ARAOBP_APIMOCK_USERNAME_DEFAULT: <HTTP basic auth username>
+ARAOBP_APIMOCK_PASSWORD_DEFAULT: <HTTP basic auth password>
+```
+
+### Running this app on Eclipse for local testing
 
 Add "application.properties" file to the project root directory with the following properties:
 
@@ -70,13 +102,3 @@ spring.datasource.password=<password>
 ```
 Note that "?currentSchema=salesforce,public" is added to spring.datasource.url to include "salesforce" schema.
 
-### Connection to PostgreSQL for Heroku deployment
-
-Add Config Vars as follows:
-```
-SPRING_DATASOURCE_DRIVER-CLASS-NAME: org.postgresql.Driver
-SPRING_DATASOURCE_URL: jdbc:postgresql:<... URL of your PostgreSQL database ...>?currentSchema=salesforce,public
-SPRING_DATASOURCE_USERNAME: <username>
-SPRING_DATASOURCE_PASSWORD: <password>
-
-```
