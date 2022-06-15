@@ -15,7 +15,7 @@ box__c table is synchronized with "Box" custom object on Salesforce Cloud via He
 Heroku with PostgreSQL                       Salesforce Cloud
 ```
 
-## Table on PostgreSQL
+## Tables on PostgreSQL
 
 Note:
 - "box__c" is a custom object on Salesforce Cloud, and its data is synchronized with its counter part on Heroku via Heroku connect.
