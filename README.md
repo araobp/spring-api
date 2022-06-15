@@ -1,5 +1,7 @@
 # Box API service based on Spring Boot
 
+Note: "Box" is my original custom object that I created on my Salesforce development edition.
+
 This app service runs on Heroku PaaS.
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
