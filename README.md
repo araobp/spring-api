@@ -15,6 +15,10 @@ Heroku with PostgreSQL                       Salesforce Cloud
 
 ## Table on PostgreSQL
 
+Note:
+- "box__c" is a custom object on Salesforce Cloud, and it's data is synchronized with its counter part on Heroku via Heroku connect.
+- "box_stats" is a table that exists on Heroku only.
+
 ```
 spring-api-0::DATABASE=> \dn
        List of schemas
