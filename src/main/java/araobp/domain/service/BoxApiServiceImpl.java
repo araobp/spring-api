@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import araobp.domain.entity.Box_Stats;
 import araobp.domain.entity.Box__c;
 import araobp.domain.repository.BoxRepository;
+import araobp.domain.repository.BoxStatsRepository;
 
 @Service
 @Transactional
@@ -15,6 +17,9 @@ public class BoxApiServiceImpl implements BoxApiService {
 
 	@Autowired
 	BoxRepository boxRepository;
+	
+	@Autowired
+	BoxStatsRepository boxStatsRepository;
 
 	@Override
 	public Iterable<Box__c> getBoxes() {
@@ -39,11 +44,11 @@ public class BoxApiServiceImpl implements BoxApiService {
 	public Boolean incrementCount(Double id__c) {
 		boolean success = false;
 		try {
-			if (boxRepository.existsById(id__c)) {
-				Optional<Box__c> b = boxRepository.findById(id__c);
-				if (b.isPresent()) {
-					Double count = b.get().getCount__c();
-					boxRepository.updateCount(id__c, ++count);
+			if (boxStatsRepository.existsById(id__c)) {
+				Optional<Box_Stats> stats = boxStatsRepository.findById(id__c);
+				if (stats.isPresent()) {
+					Double count = stats.get().getCount();
+					boxStatsRepository.updateCount(id__c, ++count);
 					success = true;
 				}
 			}
@@ -61,7 +66,7 @@ public class BoxApiServiceImpl implements BoxApiService {
 			boxes.forEach(b -> {
 				Double id = b.getCount__c();
 				boxRepository.updateBox(id, false);
-				boxRepository.updateCount(id, 0D);
+				boxStatsRepository.updateCount(id, 0D);
 			});
 			success = true;
 		} catch (Exception e) {
