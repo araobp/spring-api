@@ -19,23 +19,30 @@ public class BoxApiServiceController {
 	static final String NOT_FOUND_REASON = "ID not found";
 	
 	@Autowired
-	BoxApiService apiMockService;
+	BoxApiService boxApiService;
 	
 	@GetMapping("/box")
 	public Iterable<Box__c> getBoxes() {
-		return apiMockService.getBoxes();
+		return boxApiService.getBoxes();
 	}
 	
 	@PatchMapping("/box/{id}")
 	public void updateBox(@PathVariable Double id, @RequestBody Box__c box) {
 		box.setId__c(id);
-		Boolean success = apiMockService.updateBox(box);
+		Boolean success = boxApiService.updateBox(box);
 		if (!success) throw new ResponseStatusException(HttpStatus.NOT_FOUND, NOT_FOUND_REASON);
 	}
 	
 	@PatchMapping("/box/{id}/count")
 	public void updateCount(@PathVariable Double id) {
-		boolean success = apiMockService.incrementCount(id);
+		boolean success = boxApiService.incrementCount(id);
 		if (!success) throw new ResponseStatusException(HttpStatus.NOT_FOUND, NOT_FOUND_REASON);		
 	}
+	
+	@PatchMapping("/reset")
+	public void reset() {
+		boolean success = boxApiService.resetAll();
+		if (!success) throw new ResponseStatusException(HttpStatus.NOT_FOUND, NOT_FOUND_REASON);		
+	}
+	
 }

@@ -34,7 +34,7 @@ public class BoxApiServiceImpl implements BoxApiService {
 			return false;
 		}
 	}
-	
+
 	@Override
 	public Boolean incrementCount(Double id__c) {
 		boolean success = false;
@@ -47,7 +47,24 @@ public class BoxApiServiceImpl implements BoxApiService {
 					success = true;
 				}
 			}
-		} catch (IllegalArgumentException e) {
+		} catch (Exception e) {
+			//
+		}
+		return success;
+	}
+
+	@Override
+	public Boolean resetAll() {
+		boolean success = false;
+		try {
+			Iterable<Box__c> boxes = boxRepository.findAll();
+			boxes.forEach(b -> {
+				Double id = b.getCount__c();
+				boxRepository.updateBox(id, false);
+				boxRepository.updateCount(id, 0D);
+			});
+			success = true;
+		} catch (Exception e) {
 			//
 		}
 		return success;
