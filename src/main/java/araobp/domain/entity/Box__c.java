@@ -13,7 +13,6 @@ public class Box__c {
 
 	@Id
 	private Double id__c;
-	//private Integer id__c;
 
 	private Boolean move__c;
 	

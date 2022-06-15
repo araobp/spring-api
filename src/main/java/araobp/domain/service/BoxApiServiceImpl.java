@@ -53,7 +53,7 @@ public class BoxApiServiceImpl implements BoxApiService {
 				}
 			}
 		} catch (Exception e) {
-			//
+			e.printStackTrace();
 		}
 		return success;
 	}
