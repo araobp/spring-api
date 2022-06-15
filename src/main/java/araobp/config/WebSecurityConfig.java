@@ -13,8 +13,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
     	
-    	String username = System.getenv().get("ARAOBP_APIMOCK_USERNAME_DEFAULT");
-    	String password = System.getenv().get("ARAOBP_APIMOCK_PASSWORD_DEFAULT");
+    	String username = System.getenv().get("BOX_USERNAME_DEFAULT");
+    	String password = System.getenv().get("BOX_PASSWORD_DEFAULT");
     	if (username == null) username = "test";
     	if (password == null) password = "passw0rd";
     	

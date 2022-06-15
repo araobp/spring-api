@@ -10,16 +10,16 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import araobp.domain.entity.Box__c;
-import araobp.domain.service.ApiMockService;
+import araobp.domain.service.BoxApiService;
 
 
 @RestController
-public class ApiMockRestController {
+public class BoxApiServiceController {
 
 	static final String NOT_FOUND_REASON = "ID not found";
 	
 	@Autowired
-	ApiMockService apiMockService;
+	BoxApiService apiMockService;
 	
 	@GetMapping("/box")
 	public Iterable<Box__c> getBoxes() {
@@ -31,5 +31,11 @@ public class ApiMockRestController {
 		box.setId__c(id);
 		Boolean success = apiMockService.updateBox(box);
 		if (!success) throw new ResponseStatusException(HttpStatus.NOT_FOUND, NOT_FOUND_REASON);
+	}
+	
+	@PatchMapping("/box/{id}/count")
+	public void updateCount(@PathVariable Double id) {
+		boolean success = apiMockService.incrementCount(id);
+		if (!success) throw new ResponseStatusException(HttpStatus.NOT_FOUND, NOT_FOUND_REASON);		
 	}
 }
