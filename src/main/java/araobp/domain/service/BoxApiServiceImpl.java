@@ -64,7 +64,7 @@ public class BoxApiServiceImpl implements BoxApiService {
 		try {
 			Iterable<Box__c> boxes = boxRepository.findAll();
 			boxes.forEach(b -> {
-				Double id = b.getCount__c();
+				Double id = b.getId__c();
 				boxRepository.updateBox(id, false);
 				boxStatsRepository.updateCount(id, 0D);
 			});
