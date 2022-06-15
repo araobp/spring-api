@@ -32,6 +32,14 @@ spring-api-0::DATABASE=> select * from salesforce.box__c;
  2022-06-09 22:04:24 | f         | Box1 | 2022-06-09 23:03:17 |     1 | t       | xxxxxxxxxxxxxxxxxx |  3 |            | 
 (3 rows)
 
+spring-api-0::DATABASE=> select * from salesforce.box_stats;
+ id__c | count 
+-------+-------
+     2 |     0
+     1 |     0
+     0 |     0
+(3 rows)
+
 spring-api-0::DATABASE=> \d salesforce.box__c;
                                               Table "salesforce.box__c"
      Column     |            Type             | Collation | Nullable |                    Default                    
@@ -55,7 +63,12 @@ Triggers:
     hc_box__c_logtrigger AFTER INSERT OR DELETE OR UPDATE ON salesforce.box__c FOR EACH ROW WHEN (get_xmlbinary()::text = 'base64'::text) EXECUTE FUNCTION salesforce.hc_box__c_logger()
     hc_box__c_status_trigger BEFORE INSERT OR UPDATE ON salesforce.box__c FOR EACH ROW EXECUTE FUNCTION salesforce.hc_box__c_status()
 
-
+spring-api-0::DATABASE=> \d salesforce.box_stats;
+                Table "salesforce.box_stats"
+ Column |       Type       | Collation | Nullable | Default 
+--------+------------------+-----------+----------+---------
+ id__c  | double precision |           |          | 
+ count  | double precision |           |          | 
 ```
 
 ## Set up
