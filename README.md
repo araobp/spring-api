@@ -1,6 +1,6 @@
-# API service based on Spring Boot
+# Box API service based on Spring Boot
 
-This app runs on Heroku PaaS.
+This app service runs on Heroku PaaS.
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
