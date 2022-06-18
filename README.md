@@ -1,6 +1,8 @@
-# API service based on Spring Boot
+# Box API service based on Spring Boot
 
-This app runs on Heroku PaaS.
+Note: "Box" is my original custom object that I created on my Salesforce development edition.
+
+This app service runs on Heroku PaaS.
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
@@ -13,7 +15,11 @@ box__c table is synchronized with "Box" custom object on Salesforce Cloud via He
 Heroku with PostgreSQL                       Salesforce Cloud
 ```
 
-## Table on PostgreSQL
+## Tables on PostgreSQL
+
+Note:
+- "box__c" is a custom object on Salesforce Cloud, and its data is synchronized with its counter part on Heroku via Heroku connect.
+- "box_stats" is a table that exists on Heroku only.
 
 ```
 spring-api-0::DATABASE=> \dn
@@ -30,6 +36,14 @@ spring-api-0::DATABASE=> select * from salesforce.box__c;
  2022-06-09 22:04:39 | f         | Box2 | 2022-06-09 22:04:39 |     2 | f       | xxxxxxxxxxxxxxxxxx |  1 |            | 
  2022-06-09 22:03:57 | f         | Box0 | 2022-06-09 22:08:56 |     0 | t       | xxxxxxxxxxxxxxxxxx |  2 |            | 
  2022-06-09 22:04:24 | f         | Box1 | 2022-06-09 23:03:17 |     1 | t       | xxxxxxxxxxxxxxxxxx |  3 |            | 
+(3 rows)
+
+spring-api-0::DATABASE=> select * from salesforce.box_stats;
+ id__c | count 
+-------+-------
+     2 |     0
+     1 |     0
+     0 |     0
 (3 rows)
 
 spring-api-0::DATABASE=> \d salesforce.box__c;
@@ -55,7 +69,12 @@ Triggers:
     hc_box__c_logtrigger AFTER INSERT OR DELETE OR UPDATE ON salesforce.box__c FOR EACH ROW WHEN (get_xmlbinary()::text = 'base64'::text) EXECUTE FUNCTION salesforce.hc_box__c_logger()
     hc_box__c_status_trigger BEFORE INSERT OR UPDATE ON salesforce.box__c FOR EACH ROW EXECUTE FUNCTION salesforce.hc_box__c_status()
 
-
+spring-api-0::DATABASE=> \d salesforce.box_stats;
+                Table "salesforce.box_stats"
+ Column |       Type       | Collation | Nullable | Default 
+--------+------------------+-----------+----------+---------
+ id__c  | double precision |           |          | 
+ count  | double precision |           |          | 
 ```
 
 ## Set up
