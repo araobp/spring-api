@@ -74,5 +74,11 @@ public class BoxApiServiceImpl implements BoxApiService {
 		}
 		return success;
 	}
+	
+	@Override
+	public Iterable<Box_Stats> getBoxStats() {
+		return boxStatsRepository.findAll();
+	}
+
 
 }

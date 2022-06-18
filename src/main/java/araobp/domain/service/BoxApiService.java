@@ -1,5 +1,6 @@
 package araobp.domain.service;
 
+import araobp.domain.entity.Box_Stats;
 import araobp.domain.entity.Box__c;
 
 public interface BoxApiService {
@@ -11,5 +12,7 @@ public interface BoxApiService {
 	Boolean incrementCount(Double id__c);
 	
 	Boolean resetAll();
+	
+	Iterable<Box_Stats> getBoxStats();
 
 }

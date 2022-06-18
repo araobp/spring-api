@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+import araobp.domain.entity.Box_Stats;
 import araobp.domain.entity.Box__c;
 import araobp.domain.service.BoxApiService;
 
@@ -45,4 +46,8 @@ public class BoxApiServiceController {
 		if (!success) throw new ResponseStatusException(HttpStatus.NOT_FOUND, NOT_FOUND_REASON);		
 	}
 	
+	@GetMapping("/stats")
+	public Iterable<Box_Stats> getBoxStats() {
+		return boxApiService.getBoxStats();
+	}
 }
