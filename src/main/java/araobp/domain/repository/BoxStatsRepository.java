@@ -10,7 +10,7 @@ import araobp.domain.entity.Box_Stats;
 public interface BoxStatsRepository extends CrudRepository<Box_Stats, Double> {
 
 	@Modifying
-	@Query("UPDATE box_stats SET count = :count WHERE id__c = :id__c")
-	public Integer updateCount(@Param("id__c") Double id__c, @Param("count") Double count);
+	@Query("UPDATE box_stats SET count = :count WHERE id = :id")
+	public Integer updateCount(@Param("id") Double id, @Param("count") Double count);
 	
 }

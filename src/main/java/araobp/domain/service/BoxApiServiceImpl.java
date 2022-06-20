@@ -41,14 +41,14 @@ public class BoxApiServiceImpl implements BoxApiService {
 	}
 
 	@Override
-	public Boolean incrementCount(Double id__c) {
+	public Boolean incrementCount(Double id) {
 		boolean success = false;
 		try {
-			if (boxStatsRepository.existsById(id__c)) {
-				Optional<Box_Stats> stats = boxStatsRepository.findById(id__c);
+			if (boxStatsRepository.existsById(id)) {
+				Optional<Box_Stats> stats = boxStatsRepository.findById(id);
 				if (stats.isPresent()) {
 					Double count = stats.get().getCount();
-					boxStatsRepository.updateCount(id__c, ++count);
+					boxStatsRepository.updateCount(id, ++count);
 					success = true;
 				}
 			}
