@@ -70,11 +70,11 @@ Triggers:
     hc_box__c_status_trigger BEFORE INSERT OR UPDATE ON salesforce.box__c FOR EACH ROW EXECUTE FUNCTION salesforce.hc_box__c_status()
 
 spring-api-0::DATABASE=> \d salesforce.box_stats;
-                Table "salesforce.box_stats"
- Column |       Type       | Collation | Nullable | Default 
---------+------------------+-----------+----------+---------
- id__c  | double precision |           |          | 
- count  | double precision |           |          | 
+           Table "salesforce.box_stats"
+ Column |  Type   | Collation | Nullable | Default 
+--------+---------+-----------+----------+---------
+ id     | integer |           |          | 
+ count  | integer |           |          | 
 ```
 
 ## Set up
