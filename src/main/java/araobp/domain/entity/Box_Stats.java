@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Table("box_stats")
 public class Box_Stats {
 	@Id
-	private Double id;
+	private Integer id;
 
-	private Double count;
+	private Integer count;
 }
