@@ -9,7 +9,7 @@ public interface BoxApiService {
 	
 	Boolean updateBox(Box__c box);
 	
-	Boolean incrementCount(Double id);
+	Boolean incrementCount(Integer id);
 	
 	Boolean resetAll();
 	

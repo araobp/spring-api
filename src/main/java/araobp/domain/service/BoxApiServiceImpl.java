@@ -41,13 +41,13 @@ public class BoxApiServiceImpl implements BoxApiService {
 	}
 
 	@Override
-	public Boolean incrementCount(Double id) {
+	public Boolean incrementCount(Integer id) {
 		boolean success = false;
 		try {
 			if (boxStatsRepository.existsById(id)) {
 				Optional<Box_Stats> stats = boxStatsRepository.findById(id);
 				if (stats.isPresent()) {
-					Double count = stats.get().getCount();
+					Integer count = stats.get().getCount();
 					boxStatsRepository.updateCount(id, ++count);
 					success = true;
 				}
@@ -66,7 +66,8 @@ public class BoxApiServiceImpl implements BoxApiService {
 			boxes.forEach(b -> {
 				Double id = b.getId__c();
 				boxRepository.updateBox(id, false);
-				boxStatsRepository.updateCount(id, 0D);
+				Integer id_ = (int)(Math.round(id));
+				boxStatsRepository.updateCount(id_, 0);
 			});
 			success = true;
 		} catch (Exception e) {

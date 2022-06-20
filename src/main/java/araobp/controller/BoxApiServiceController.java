@@ -35,7 +35,7 @@ public class BoxApiServiceController {
 	}
 	
 	@PatchMapping("/box/{id}/count")
-	public void updateCount(@PathVariable Double id) {
+	public void updateCount(@PathVariable Integer id) {
 		boolean success = boxApiService.incrementCount(id);
 		if (!success) throw new ResponseStatusException(HttpStatus.NOT_FOUND, NOT_FOUND_REASON);		
 	}
